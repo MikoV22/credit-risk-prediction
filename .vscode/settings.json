@@ -1,0 +1,4 @@
+{
+    "github.copilot.editor.enableCodeActions": false,
+    "python.analysis.autoImportCompletions": false
+}
