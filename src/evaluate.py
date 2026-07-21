@@ -8,7 +8,7 @@ def evaluate_model(model, X_test, y_test):
     Liczy standardowy zestaw metryk klasyfikacji binarnej dla wytrenowanego modelu
     """
     y_pred = model.predict(X_test)
-    y_pred_proba = model.predict(X_test)
+    y_pred_proba = model.predict_proba(X_test)[:, 1]
 
     metrics = {
         'accuracy': accuracy_score(y_test, y_pred),
@@ -36,4 +36,3 @@ def plot_confusion_matrix(y_test, y_pred, model_name="Model"):
     disp.plot(cmap='Blues')
     plt.title(f'Macierz pomyłek - {model_name}')
     plt.show()
-    

@@ -21,7 +21,7 @@ numeric_cols = [
 def load_german_credit(filepath):
     """Wczytuje dane German Credit i przekodowuje target na0/1"""
     df = pd.read_csv(filepath, sep=' ', header=None, names=column_names)
-    df['target'] = df['target'].map[{1:0, 2:1}]
+    df['target'] = df['target'].map({1:0, 2:1})
     return df
 
 def prepare_data(df, test_size=0.2, random_state=42):
@@ -40,7 +40,7 @@ def prepare_data(df, test_size=0.2, random_state=42):
         X, y, test_size=test_size, random_state=random_state, stratify=y
     )
 
-    scaler = StandardScaler
+    scaler = StandardScaler()
     X_train_scaled = X_train.copy()
     X_test_scaled = X_test.copy()
     X_train_scaled[numeric_cols] = scaler.fit_transform(X_train[numeric_cols])
