@@ -46,4 +46,4 @@ def prepare_data(df, test_size=0.2, random_state=42):
     X_train_scaled[numeric_cols] = scaler.fit_transform(X_train[numeric_cols])
     X_test_scaled[numeric_cols] = scaler.transform(X_test[numeric_cols])
 
-    return X_train_scaled, X_test_scaled, y_train, y_test
+    return X_train_scaled, X_test_scaled, y_train, y_test, scaler
