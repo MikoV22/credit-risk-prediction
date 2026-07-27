@@ -42,13 +42,23 @@ st.subheader("Dane klienta")
 col1, col2 = st.columns(2)
 
 with col1:
-    wiek = st.number_input("Wiek", min_value=18, max_value=100, value=35)
+    wiek = st.number_input("Wiek", min_value=18, max_value=75, value=35)
     kwota_kredytu = st.number_input("Kwota kredytu (DM)", min_value=250, max_value=20000, value=3000)
     czas_trwania_msc = st.number_input("Okres kredytowania (miesiące)", min_value=4, max_value=72, value=24)
-    raty_proc_dochodu = st.slider("Rata jako % dochodu", min_value=1, max_value=4, value=2)
+    raty_proc_dochodu = st.slider(
+        "Obciążenie dochodu ratą",
+        min_value=1, max_value=4, value=2,
+        help="Skala 1-4, gdzie 1 oznacza najmniejsze obciążenie dochodu ratą, a 4 największe. "
+             "Oryginalny zbiór danych nie podaje dokładnych progów procentowych."
+    )
 
 with col2:
-    lata_w_miejscu_zamieszkania = st.slider("Lata w obecnym miejscu zamieszkania", min_value=1, max_value=4, value=2)
+    lata_w_miejscu_zamieszkania = st.slider(
+        "Staż w obecnym miejscu zamieszkania",
+        min_value=1, max_value=4, value=2,
+        help="Skala 1-4, gdzie 1 oznacza najkrótszy staż, a 4 najdłuższy. "
+             "Zbiór danych nie precyzuje przedziałów w latach."
+    )
     liczba_kredytow_w_banku = st.slider("Liczba kredytów w tym banku", min_value=1, max_value=4, value=1)
     liczba_osob_na_utrzymaniu = st.slider("Liczba osób na utrzymaniu", min_value=1, max_value=2, value=1)
 
