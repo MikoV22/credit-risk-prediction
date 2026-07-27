@@ -115,6 +115,8 @@ The project includes a Streamlit app for making predictions on new clients.
 
 To run it: streamlit run app.py
 
+![Streamlit app screenshot](images/app_screenshot.png)
+
 The app loads the trained model from `models/`, so there is no need to retrain 
 anything. Fill in the form with the client's data and click **Oceń ryzyko** to get 
 a prediction along with the estimated probability of default. Built-in instructions 
