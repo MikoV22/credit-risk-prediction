@@ -9,6 +9,8 @@ This project builds and compares two machine learning models (Logistic Regressio
 and Random Forest) to predict credit risk - whether someone is likely to repay 
 or default on a loan. It includes data exploration, data cleaning and preparation, 
 model training, hyperparameter tuning, and an additional SQL-based analysis.
+It also includes a simple Streamlit web app where you can enter a new client's 
+data and get a prediction.
 
 This was built as a learning project to practice Python, machine learning, and SQL.
 
@@ -22,6 +24,7 @@ loan purpose, etc.) and a target variable showing whether they repaid the loan.
 ## Tech Stack
 
 - **Python** - pandas, numpy, scikit-learn, matplotlib, seaborn
+- **Streamlit** - simple web app for predictions
 - **SQL** - SQLite, for data exploration and querying
 - **Jupyter Notebook** - for analysis and experimentation
 
@@ -41,10 +44,16 @@ credit-risk-prediction/
     02_preprocessing_modeling_german.ipynb
     03_sql_analysis_german.ipynb
     04_final_pipeline_german.ipynb
+  models/
+    model.pkl                (trained Logistic Regression)
+    scaler.pkl               (fitted StandardScaler)
+    columns.pkl              (feature columns after encoding)
   src/
     data_prep.py             (data loading and preprocessing)
     train.py                  (model training)
     evaluate.py                (model evaluation)
+    predict.py                 (predictions for new clients)
+  app.py                     (Streamlit web app)
   requirements.txt
   README.md
 ```
@@ -99,6 +108,19 @@ samples) and the relationships between features and the target are mostly linear
 2. Create a virtual environment and activate it
 3. Install dependencies: `pip install -r requirements.txt`
 4. Open the notebooks in the `notebooks/` folder, in order (01 to 04)
+
+## Web App
+
+The project includes a Streamlit app for making predictions on new clients.
+
+To run it: streamlit run app.py
+
+The app loads the trained model from `models/`, so there is no need to retrain 
+anything. Fill in the form with the client's data and click **Oceń ryzyko** to get 
+a prediction along with the estimated probability of default. Built-in instructions 
+are available in the expandable section at the top of the page.
+
+Note: the app interface is in Polish.
 
 ## Possible Extensions
 
